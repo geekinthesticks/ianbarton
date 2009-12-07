@@ -1,0 +1,51 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: Linux.
+#+BEGIN_HTML
+--- 
+layout: linux 
+title: Linux.
+--- 
+#+END_HTML
+
+As a household we switched completely from using Windows to Linux
+about five years ago. I had been using Linux as a file/mail/web server
+for much longer, but our desktops were running Windows 2000. As a
+former Windows developer and network admin, I was familiar with
+running Windows. However, I was fed up of the complexity and amount of
+work involved in maintaining even our small network of five
+desktops. I had already tried using SuSe as a desktop, but at that
+time it didn't work out for us. When Ubuntu Hoary Hedgehog was
+released, I installed it and could immediately see that it was the
+right distro for us.
+
+I installed it on all the desktops. Most of the family just wanted to
+read their emails, write the odd letter and browse the web. Since they
+were already using Firefox and Thunderbird they didn't notice much
+difference in the way the used the computer. I did have some problems
+getting things like Flash to work, but managed to sort these out. As
+the Ubuntu releases rolled out setting up systems became easier as
+more things "just worked" out of the box. Most of the children's games
+worked using wine, probably with less fiddling about than using
+Windows.
+
+I had been using various flavours of *nix systems since 1990, so I
+probably had less problems than the average Windows user switching to
+Linux. Once we had switched to Linux system admin became much
+easier. All configurations were stored in text files and could be
+maintained using version control, no more regedit. The operating
+system could be stored on a separate partition from user
+data. Managing security was much easier, since Linux was secure by
+default and didn't need anything special setting up. Virus and Trojans
+almost completely disappeared off the radar. System backup and restore
+using [[http://clonezilla.org/][Clonezilla]] was very easy.
+
+In addition to desktop systems we now run a [[http://www.mythtv.org][MythTV]] backend, two
+standalone MythTV front ends, a couple of Linksys [[http://www.cyrius.com/debian/nslu2/][slugs]] with Debian
+installed and a [[http://www.marvell.com/products/embedded_processors/developer/kirkwood/sheevaplug.jsp][Sheevaplug]]. My main file server box runs Xen under
+Debian and has virtual servers which run mail/web and the security
+cameras using motion. Deploying a new virtual machine on Xen is very
+easy, which means that I can quickly setup a new box to test something
+out.
+

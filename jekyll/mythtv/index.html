@@ -1,0 +1,262 @@
+---
+layout: default
+title: MythTV.
+---
+
+<p>
+I have been using MythTV for a couple of years now. Like most complex
+bits of software, it can be difficult to get it set up the way that
+you want it. There are a number of comprehensive guides to installing
+Myth on various flavours of Linux elsewhere on the Internet. These
+pages are not a HowTo on installing MythTV, but contain hints and tips
+that have helped me fine tune my system.
+</p>
+<p>
+If you want to build Myth from svn see <a href="http://www.ian-barton.com/wiki/MythTV/CompilingFromSVN">compiling MythTV from svn</a> .
+</p>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">Hauppauge Nova-T 500.</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>This card contains twin DVB tuners. It's supported out of the box by
+Feisty, but you may experience problems with usb disconnects causing
+kernel panics. If your box locks up periodically for no apparent
+reason this may be the cause. One solution is to disable the EIT
+program guide in Myth and use mythfilldatabase instead. It's also
+possible to install the latest <a href="http://www.mythtv.org/wiki/index.php/Hauppauge_WinTV_Nova-T_500_PCI dvb">drivers</a> , which seem to have made a big
+difference for me.
+</p>
+<p>
+There is a good page about the card in the MythTV <a href="http://www.mythtv.org/wiki/index.php/Hauppauge_WinTV_Nova-T_500_PCI">wiki</a> . One useful
+tip is to make sure that you turn on the on board amplifier:
+</p>
+<p>
+{% highlight bash %}
+sudo vim /etc/modprobe.d/options
+Add the following to the end of the file: 
+options dvb-usb-dib0700 force<sub>lna</sub><sub>activation</sub>=1 
+{% endhighlight %}
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2">Using mythrename.pl.</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>In the contribute scripts directory MyThTV contains a script called mythrename.pl, which will rename your recordings to a more human readable format. By default Myth creates file names of the format:
+</p>
+<p>
+{% highlight bash %}
+[ChannelID]<sub>[Year][Month][Hour][Min][Sec]</sub>.mpg
+{% endhighlight %}
+</p>
+<p>
+If you want to copy your recordings somewhere else, it can be
+difficult to identify the correct file. Running mythrename.pl with no
+parameters will rename your files in the format:
+</p>
+<p>
+At first this seemed like a "good idea". However, various other Myth
+utilities expect the file names to be in the default format. One
+example is mythtranscode. So what happens if you have run
+mythrename.pl and want to restore your file names to the default
+format? You can use mythrename.pl to restore the original format:
+</p>
+<p>
+{% highlight perl %}
+mythrename.pl &ndash;format '%c_%Y%m%d%H%i%s' &ndash;live
+{% endhighlight %}
+</p>
+<p>
+Now you can use mythrename with the &ndash;link option to create symlinks
+with pretty file names to the original files.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3">Trimming Recordings.</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>Myth has various automated methods for marking adverts in
+recordings. None of these work well for me here in the UK. For most
+programs I simply fast forward past the adverts. However, if I want to
+keep a recording I mark the adverts manually using edit mode.
+</p>
+<p>
+Initially I found that editing recorded files to cut out the ads was
+problematic. The reason was the nature of the mpg files produced from
+DVB cards by Myth. There seems to be a 300 msec delay between the
+audio and video track. If you just watch the program this is not
+noticeable. However, once you start trying to edit the files, audio
+and video rapidly get noticeably out of sync.
+</p>
+<p>
+One solution is to demux the mpg file using ProjectX and then
+re-multiplex the streams. However, this is quite labour intensive and
+time consuming. Luckily mythtranscode has an option that will fix
+errors in recorded mpg files. As a starting point I use the <a href="http://www.mythtv.org/wiki/index.php/Removing_Commercials">script</a>
+from the MythTV wiki. I modified it as I don't want automatic
+commercial flagging.
+</p>
+<p>
+I have set this script up as a user job, so I can run it when
+required.
+</p>
+<p>
+{% highlight bash %}
+VIDEODIR=$1
+FILENAME=$2
+CHANID=$3
+STARTTIME=$4
+</p>
+<p>
+if [ -z "$VIDEODIR" -o -z "$FILENAME" ]; then
+echo "Usage: $0 &lt;VideoDirectory&gt; &lt;FileName&gt;"
+exit 5
+fi
+if [ ! -f "$VIDEODIR/$FILENAME" ]; then
+echo "File does not exist: $VIDEODIR/$FILENAME"
+exit 6
+fi
+</p>
+
+
+<p>
+mythtranscode &ndash;showprogress &ndash;honorcutlist &ndash;mpeg2 -c $CHANID -s $STARTTIME -o $VIDEODIR/$FILENAME.tmp
+</p>
+<p>
+ERROR=$?
+</p>
+<p>
+if [ $ERROR -ne 0 ]; then
+echo "Transcoding failed for ${FILENAME} with error $ERROR"
+exit $ERROR
+fi
+</p>
+
+<p>
+mv $VIDEODIR/$FILENAME $VIDEODIR/$FILENAME.old
+mv $VIDEODIR/$FILENAME.tmp $VIDEODIR/$FILENAME
+</p>
+
+<p>
+mythtranscode &ndash;showprogress &ndash;buildindex &ndash;mpeg2 -c $CHANID -s $STARTTIME
+</p>
+<p>
+mythcommflag &ndash;clearcutlist -f $VIDEODIR/$FILENAME
+</p>
+
+<p>
+ERROR=$?
+if [ $ERROR -eq 0 ]; then
+# Fix the database entry for the file
+cat &lt;&lt; EOF | mysql -u mythtv -pmythtv mythconverg
+UPDATE
+recorded
+SET
+cutlist = 0,
+filesize = $(ls -l $VIDEODIR/$FILENAME | awk '{print $5}')
+WHERE
+</p>
+<p>
+basename = '$FILENAME';
+EOF
+exit 0
+else
+echo "Clearing cutlist failed for ${FILENAME} with error $ERROR"
+rm /usr/video/$FILENAME.tmp
+exit $ERROR
+fi
+{% endhighlight %}
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4">Encoding Video for an Archos 404.</h2>
+<div class="outline-text-2" id="text-4">
+
+<p>I recently bought an Archos multimedia player and I wanted an easy way
+to re-encode my MythTV recordings in a format suitable for the Archos.
+</p>
+<p>
+There are a number of scripts around for converting MythTV recordings into PDA and iPod compatible formats. Benton Roberts has created a nice Perl script that helps you create a set of shell scripts for processing MythTV recordings. You can download his scripts from <a href="http://bentonroberts.com/personal/media-server/code/mythshelljob | here">http://bentonroberts.com/personal/media-server/code/mythshelljob | here</a> . The main script can be run either as a user job, or from a command line. One of the nice things about his scripts is the ability to create a job definition file. This is a simple text file the script uses to determine things like encoding parameters and output file name. If your household has several multimedia devices you can create a job definition file for each device and choose which one to run from the main script.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5">Creating Time-stamped Backups Using cron.</h2>
+<div class="outline-text-2" id="text-5">
+
+<p>It's quite easy to backup your database using mysqldump. However, what
+happens if you discover a problem with the database that occured a few
+days ago? Simply dumping the database once a day won't help you, as
+your backup file will contain the error. The solution is to create
+daily backups. Each backup is a compressed .tgz file with the name in
+the format mysql-dd-mm-yyyy.tgz.
+</p>
+<p>
+Don't forget to clear out your backup directory once in a while, or
+your hard drive will eventually fill up! If your hard disk crashes,
+having multiple backups won't help you, so you probably need another
+cron job to rsync your backups to another computer.
+</p>
+<p>
+{% highlight bash %}
+</p>
+<p>
+DATESTAMP="`date '+%d%m%Y'`"
+</p>
+<p>
+mysqldump -u root -pyourpassword mythconverg &gt; /home/mythtv/mysql<sub>backup</sub>/mythconverg.sql
+</p>
+<p>
+tar -zvcf <i>home/mythtv/backup/mysql-${DATESTAMP}.tgz /home/mythtv/mysql<sub>backup</sub></i>
+{% endhighlight %}
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6">Problems Tuning Some Freeview Channels.</h2>
+<div class="outline-text-2" id="text-6">
+
+<p>Myth has been having problems tuning certain Freeview channels,
+including BBC4, Channel5 and Radio 4. However, I can receive these
+channels with no problem using Kaffeine, so the hardware and signal
+strength must be OK. My database is quite old, having originated at
+about MythTV 0.17. I had tried various options to re-tune, but the
+problem persisted. In case anyone else is experiencing th same sort of
+trouble this is how I fixed it.
+</p>
+<ul>
+<li>
+Create a channels.conf file using scan (tzap). Make sure that you stop mythbackend first.
+
+</li>
+</ul>
+
+<p>{% highlight bash %}
+scan -c /usr/share/doc/dvb-utils/examples/scan/dvb-t/uk-WinterHill &gt; channels.conf
+{% endhighlight %}
+</p>
+<ul>
+<li>
+Run mythtv-setup and delete all existing channels. Run the channel scanner with the option to use channels.conf '''and''' delete existing channels.
+
+</li>
+</ul>
+
+<p>Myth can now tune all the Freeview channels correctly.
+</p>
+</div>
+</div>

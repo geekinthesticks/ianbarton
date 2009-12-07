@@ -1,0 +1,27 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: Snells Field Chamonix.
+#+BEGIN_HTML
+--- 
+layout: mountaineering
+title: Snells Field Chamonix.
+--- 
+#+END_HTML
+For many years impecunious British Alpinists camped on this field just
+outside Chamonix. It wasn't an official site. The field was owned by
+M. Snell, who owned the Snell Sport shop in Chamonix. From time to
+time the Gendarmerie would raid the site and move people on. For a few
+days people wold migrate to the woods outside Argentiere before slowly
+filtering back to Snells field. If you had gone off climbing and left
+your tent on the field the police would sometimes "arrest" your tent
+and take it back to Chamonix with them. You would then have to go down
+to the gendarmerie and ask them to give it back to you.
+
+Just opposite to Snell's there was an "official" site called Pierre
+d'Orthaz. The owner was very nice and just charged what he thought you
+could afford to pay. A couple of people even got to stay for free.
+
+I haven't been back to Chamonix since the mid 1990's and I understand
+that Snell's field has now been built over.
+

@@ -1,0 +1,58 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: BBC Listen Again.
+#+BEGIN_HTML
+---
+layout: default
+title: BBC Listen Again.
+---
+#+END_HTML
+
+** Recording Programs from the BBC Listen Again Site.
+*Warning*, my understanding is that you are permitted to record programs
+from the BBC site for your own use only. You are not allowed to
+distribute them to others in any way.
+
+I enjoy listening to Radio 4 and BBC7. Unfortunately, I am often not
+able to listen when the programs that I am interested in are
+broadcast. The Beeb has the very useful [[%20http://www.bbc.co.uk/radio4/progs/listenagain.shtml][Listen Again]] site. Many radio
+programs are available to listen to for seven days after they were
+first broadcast.
+
+There are a couple of downsides:
+
+- The programs are streamed in Real Audio format. Luckily MPlayer can cope with this and Real has made a binary Linux player available.
+- The Beeb try hard to obfuscate the url of the stream, making it harder to download the stream to disk.
+
+There are a number of ways to get at the url of the stream. For me I just set Totem to be the player of choice for Real  Media (it can play Real streams OK if you have the right codecs installed). Right clicking on the link in the playlist and choosing "Copy Location" will get you the url. Incidentally, I find the [[http://membres.lycos.fr/sethnakht/FAQ%20MediaPlayerConnectivity.html | Media Player Connectivity]] extension for Firefox invaluable for setting up my preferred media player. Once I have got the url, I use the following shell script to record the program to hard disk and convert it to mp3.
+
+{% highlight bash %}
+#!/bin/bash
+# Note using /bin/sh seems to cause problems with Edgy.
+
+# Usage is listen.sh url output_file
+
+# Create a random name for the temp WAV file.
+FILE=$RANDOM
+QUALITY=64
+
+mplayer -nojoystick -nolirc -prefer-ipv4  $1 -ao pcm:file="/var/home/ian/mp3/$FILE.wav"
+-vc dummy -vo null
+
+cd /var/home/ian/mp3
+
+# Uncomment this line if you prefer ogg files.
+#oggenc -b $QUALITY $FILE.wav
+
+lame -b $QUALITY $FILE.wav $FILE.mp3
+
+# Remove the intermediate WAV file
+rm $FILE.wav
+#mv $FILE.ogg `echo $2 | tr " "  _`.ogg
+
+# Rename the file.
+mv $FILE.mp3 `echo $2 | tr " "  _`.mp3
+{% endhighlight %}
+
+

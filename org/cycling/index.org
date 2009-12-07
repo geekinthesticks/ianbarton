@@ -1,0 +1,41 @@
+#+SETUPFILE: ~/.emacs-lisp/org-templates/level-1.org
+#+TITLE: Index for Cycling Pages.
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+INFOJS_OPT: view:overview ltoc:nil toc:t
+#+OPTIONS: H:2 num:nil tags:nil toc:1 timestamps:t
+#+LINK_UP: index.html
+#+LINK_HOME: ../index.html
+#+BEGIN_HTML
+---
+layout: cycling
+title: Cycling.
+excerpt: Page about cycling.
+---
+#+END_HTML
+Like most people I learnt to cycle when I was a child. I can still
+remember, when I was four and a half, a friend removing the
+stabilizers from my bike and sending me off across the lawn balanced
+on two wheels. Like most thing learning to cycle is easy once you have
+done it!
+
+After leaving school I hardly ever cycled. However, in 1990 after
+hiring a bike to cycle along the Ashbourne Trail in Derbyshire, I
+decided to buy a new bike. All my old bikes had just had the ols three
+gear Sturmey Archer system. My new bike was what I would have called a
+"racer", with decent derailleur gears. It had a decent frame and
+having decent gears transformed my experience of cycling, particularly
+in hilly Derbyshire.
+
+I have never been a fanatical cyclist, being quite happy with rides in
+the 10 to 50 mile range. However, I do try and go out at least three
+times per week.
+
+Cycling is a great family activity. If you have a trailer bike, you
+can cycle, even with very young children. As the children get older
+one thing I would like to try is cycle touring.
+
+Linked from this page are several family friendly cycle routes that we
+have done. Some of these are completely off road. However, we are
+lucky to live in the countryside, where the minor roads are relatively
+quiet and are generally suitable for family bike rides.

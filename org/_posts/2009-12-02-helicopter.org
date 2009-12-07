@@ -1,0 +1,13 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:1 timestamps:t
+#+BEGIN_HTML
+'---
+---
+layout: post
+title: Model Helicopter
+tags: [gadgets, linux, test]
+excerpt: My latest toy, an indoor helicopter.
+---
+#+END_HTML
+* Indoor Helicopters.

@@ -1,0 +1,10 @@
+#+TITLE: Dolgelleau to Barmouth.
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:1 timestamps:t
+#+BEGIN_HTML
+---
+layout: cycling
+title: Dolgelleau to Barmouth.
+---
+#+END_HTML

@@ -1,0 +1,31 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: MythTV.
+#+BEGIN_HTML
+---
+layout: default
+title: Re-flash the BIOS on an Asus Pundit.
+---
+#+END_HTML
+
+* Re-flashing the BIOS on an Asus Pundit.
+We have several Pundits around the house and they tend to ship with
+rather old BIOS revisions. In an attempt to try and fix a problem with
+my Pundit AH-2 sometimes refusing to recognise a SATA hard disk, I
+wanted to upgrade the BIOS to the latest version. The Pundit doesn't
+have a floppy and I didn't want all the hassle of trying to make a
+bootable DOS CD with all the right software installed. Luckily I found
+out that pressing '''Alt-F2''' during the POST sequence will drop you
+into the built in EZ Flash utility. You might need a couple of
+attempts to get to the utility - wait until the Asus splash screen
+appears, hold down the alt key and repeatedly bash F2.
+
+There is one gotcha the downloaded BIOS images have file names like
+P1AH2_404.BIN. You will need to rename the extracted file to
+P1AH2.BIN, or the EZ flash utility will complain that it can't load
+the file. So the procedure is:
+
+- Rename the bin file to the correct name eg. P1AH2.BIN
+- Burn BIN file to CD and insert into Pundit.
+- Reboot. Hold down the Alt key when the Asus splash screen appears and keep pressing F2 until you get into the EZ Flash utility.

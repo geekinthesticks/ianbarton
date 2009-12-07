@@ -1,0 +1,66 @@
+---
+layout: post
+title: ADSL Connection Problems.
+tags: [gadgets, linux, test]
+excerpt: Problems with the Texas Instruments AR7 chip.
+---
+
+
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1">ADSL Disconnection Problems.</h2>
+<div class="outline-text-2" id="text-1">
+
+<p>Some time ago I upgraded my ADSL to ADSL Max. This worked very well
+indeed for quite a long time. However, several months ago I noticed
+that my Zyxel 660H D1 router kept disconnecting, sometimes for several
+minutes. I have tried all the usual things like disconnecting
+everything else on the phone line. My router is already plugged into
+BT's master socket, so it isn't dodgy internal wiring and I have tried
+a Netgear router which showed the same symptoms. <a href="#[[http://www.wizards.co.uk">Wizards</a> my ISP were
+very helpful, but we couldn't really pin down the problem. The next
+step would be to get BT to test the line. However, if they can't find
+a fault they charge you £169 for the privilege of testing your
+line. Given that the fault was intermittent, it's quite likely that
+they wouldn't find anything wrong.
+</p>
+<p>
+Recently I stumbled across an article on <a href="#[[http://www.theregister.co.uk/2007/10/22/zen_ar7_infineon_bt_fault/">The Register</a> "ISP blows the
+whistle on router chip 'fault'", which described a router problem very
+similar to mine. In a nutshell many ADSL routers us a Texas
+Instruments AR7 chip, which ''may'' be causing the disconnect
+problems. BT's engineers use ADSL modems with a different chipset,
+which doesn't seem to have this problem, so when they test your line
+they can't find any thing wrong.
+</p>
+<p>
+So I have decided to get another router. Unfortunately, most router
+spec. sheets don't tell you what chipset they are using. However, I
+have found out that Thompson Speedtouch ADSL modems (as used by BT)
+use a different chipset. My problem is I need a fairly specialized
+type of router. I have a block of fixed IP addresses from
+<a href="http://www.wizards.co.uk | Wizards">http://www.wizards.co.uk | Wizards</a>, which I can map to specific
+computers on my network. This means that I can then access these
+computers from anywhere that there is an Internet connection. In order
+for this to be secure these connections need to pass through the
+router's firewall. This require a feature called multi NAT, which
+isn't standard on most routers. After some research I found the
+Thomson SpeedTouch 780WL Wireless ADSL 2/2+ VoIP Router from <a href="http://www.broadbandbuyer.co.uk/Shop/MFR/ShopDetail.asp?ProductID=3784">Broadband Buyer</a> , which supports multi NAT. It also has several VOIP features,
+which means I'll be able to replace my Sipura VOIP box.
+</p>
+<p>
+You might wonder why I would want to access my computers from the Internet, so here are a few reasons:
+</p>
+<ul>
+<li>
+I can program my MythTV box, so when we go out and I have forgotten to record Coronation Street or Dr Who, I can do it via my mobile phone.
+</li>
+<li>
+I can make cheap calls anywhere in the world from my mobile using my VOIP account.
+</li>
+<li>
+Access to my data from anywhere.
+</li>
+</ul>
+</div>
+</div>

@@ -1,0 +1,11 @@
+auto:        false
+destination: /var/www
+permalink:   pretty
+pygments:    true
+markdown:    maruku
+permalink:   date
+maruku:
+  use_tex:    false
+  use_divs:   true
+  png_dir:    images/latex
+  png_url:    /images/latex

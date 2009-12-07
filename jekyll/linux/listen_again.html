@@ -1,0 +1,65 @@
+---
+layout: default
+title: BBC Listen Again.
+---
+
+
+<div id="outline-container-1" class="outline-3">
+<h3 id="sec-1">Recording Programs from the BBC Listen Again Site.</h3>
+<div class="outline-text-3" id="text-1">
+
+<p><b>Warning</b>, my understanding is that you are permitted to record programs
+from the BBC site for your own use only. You are not allowed to
+distribute them to others in any way.
+</p>
+<p>
+I enjoy listening to Radio 4 and BBC7. Unfortunately, I am often not
+able to listen when the programs that I am interested in are
+broadcast. The Beeb has the very useful <a href="#http://www.bbc.co.uk/radio4/progs/listenagain.shtml">Listen Again</a> site. Many radio
+programs are available to listen to for seven days after they were
+first broadcast.
+</p>
+<p>
+There are a couple of downsides:
+</p>
+<ul>
+<li>
+The programs are streamed in Real Audio format. Luckily MPlayer can cope with this and Real has made a binary Linux player available.
+</li>
+<li>
+The Beeb try hard to obfuscate the url of the stream, making it harder to download the stream to disk.
+
+</li>
+</ul>
+
+<p>There are a number of ways to get at the url of the stream. For me I just set Totem to be the player of choice for Real  Media (it can play Real streams OK if you have the right codecs installed). Right clicking on the link in the playlist and choosing "Copy Location" will get you the url. Incidentally, I find the <a href="http://membres.lycos.fr/sethnakht/FAQ MediaPlayerConnectivity.html | Media Player Connectivity">http://membres.lycos.fr/sethnakht/FAQ%20MediaPlayerConnectivity.html | Media Player Connectivity</a> extension for Firefox invaluable for setting up my preferred media player. Once I have got the url, I use the following shell script to record the program to hard disk and convert it to mp3.
+</p>
+<p>
+{% highlight bash %}
+</p>
+
+<p>
+FILE=$RANDOM
+QUALITY=64
+</p>
+<p>
+mplayer -nojoystick -nolirc -prefer-ipv4  $1 -ao pcm:file="/var/home/ian/mp3/$FILE.wav"
+-vc dummy -vo null
+</p>
+<p>
+cd /var/home/ian/mp3
+</p>
+
+<p>
+lame -b $QUALITY $FILE.wav $FILE.mp3
+</p>
+<p>
+rm $FILE.wav
+</p>
+<p>
+mv $FILE.mp3 `echo $2 | tr " "  <sub>`</sub>.mp3
+{% endhighlight %}
+</p>
+
+</div>
+</div>

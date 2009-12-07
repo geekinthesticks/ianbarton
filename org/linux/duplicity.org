@@ -1,0 +1,259 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: Linux.
+#+BEGIN_HTML
+--- 
+layout: default 
+title: Encrypted Backups Using Duplicity.
+--- 
+#+END_HTML
+
+If you want to backup your data off-site there are various companies
+offering a range of services. However, most of these are targeted at
+Windows users and rely on the end user installing proprietary
+software, which will only run under Windows. The Windows application
+will then encrypt and transmit the data to the backup server and you
+will need to use a Windows computer with the software installed to
+retrieve your data. With some of these services it's possible for
+Linux users to backup their data using something like rsync, but not
+to encrypt it. However, it's possible to take advantage of the
+bandwidth saving features of rsync and encrypt your data using [[http://duplicity.nongnu.org/][Duplicity]] . Note that Duplicity will
+work with both Windows and Linux systems, in fact it should work on
+just about anything that can run Python and has the GnuPG encryption
+software available.
+
+Duplicity uses librsync so that only the parts of files that have
+changed since that last backup are sent over the network. Duplicity
+also encrypts and signs your data using [[%5B%5Bhttp://www.gnupg.org/][GnuPG]] . This means that even if an unauthorized person manages to download
+your files from the backup server, they won't be able to read them
+unless they also have the key that you used to encrypt the files. Thus
+you can put your backup files almost anywhere, with very little risk
+of third parties being able to read your data. If you use a Web
+hosting company which has a Linux server and allows you to access the
+server either via ssh, sftp or ftp, you can use any spare space you
+may have on the server to store your backups. I wouldn't recommend
+that you put your backups in your web space, but most providers will
+allow you to create files in your account, but outside of your public
+web-space. If your hosting company uses Windows servers, you can still
+use Duplicity as long as you have ftp access to your account.
+
+One further advantage of duplicity is that it doesn't require your isp
+to have anything special installed on their server. Provided that you
+can ssh or ftp into the server you should be able to use duplicity.
+
+One other very useful feature of Duplicity is the ability to store
+several different versions of your files. Consider what would happen
+if you deleted some files that you didn't mean to, but didn't notice
+for several days. With most backup procedures those files would be
+automatically deleted from your backups the next time that your data
+was backed up. However, Duplicity will keep previous versions of files
+and copies of files that have been deleted on your computer. You can
+optionally specify how long old file versions are kept, so you don't
+completely fill up your backup device with old files!
+
+* Installation.
+If you are using Ubuntu or any other Debian based distro:
+
+
+{% highlight bash %}
+sudo apt-get install duplicity librsync gpg
+{% endhighlight %}
+
+%red% IMPORTANT The version of duplicity that ships with Ubuntu Feisty is broken. An upstream fix should be available and should be installed when you install duplicity. However, I would strongly recommend that you download the latest tarball from the web site and install manually. In order to get upstream updates of duplicity you should ensure that you have updates enabled for universe in sources.list.
+
+To install from source on Ubuntu Feisty or Gutsy first install the dependencies:
+
+{% highlight bash %}
+sudo apt-get install librsync librsync-dev gnupg python-dev python-pexpect
+{% endhighlight %}
+
+Now unpack and install duplicity. I have choesn to install it in /usr/local so it doesn't interfere with any important system files and can be easily removed if required:
+
+{% highlight bash %}
+ian@banter:~/devel tar -cvzf duplicity-0.4.4.RC2.tar.gz
+cd duplicity-0.4.4.RC2
+sudo python setup.py install --prefix=/usr/local
+{% endhighlight %}
+
+It should compile without errors and you can check if you have the latest version:
+
+{% highlight bash %}
+ian@banter:/home/ian/devel/duplicity-0.4.4.RC2# duplicity --version
+duplicity 0.4.4.RC2
+{% endhighlight %}
+
+!Command Line Syntax Changes.
+%red% From 0.4.4.RC4 the Duplicity the command line syntax has changed significantly. The new default is now:
+
+{% highlight bash %}
+duplicity [action] [options] [source] target
+{% endhighlight %}
+
+Since the old version is likely to be around for a while, I have shown both the old style and the new syntax in command line options where appropriate.
+
+* Backing Up Your Data.
+You can use ssh or sftp as a transport protocol. Duplicity isn't able to transmit ssh passwords directly to the remote host, so you '''must''' use passwordless ssh keys. Click here for details on how to use ssh keys.
+
+You will need to create a GPG key to encrypt and sign your backups. Since you will probably want to put the key-phrase in your backup scripts, I suggest that you create a new key that you use just for backups:
+
+
+{% highlight bash %}
+gpg --gen-key
+{% endhighlight %}
+
+I suggest that you just accept all the defaults. You will need to choose a pass phrase. Make sure that you choose something long enough that it can't easily be guessed or cracked by brute force. Your keys will be stored in the .gnupg folder. '''Make sure that you back up .gnupg''' , preferably in more than one place. If you lose your key, or forget your password, you will not be able to restore your data!
+
+Check that your key has been created correctly:
+
+{% highlight bash %}
+gpg --list-keys
+
+/home/ian/.gnupg/pubring.gpg
+----------------------------
+pub   1024D/D8CC5102 2007-09-26
+uid                  Ian Barton (This is a test key) <ian@universe.net>
+sub   2048g/70DFF84F 2007-09-26
+{% endhighlight %}
+
+Make a  note of the id of the private key, "70DFF84F" in the above example.
+
+Duplicity creates a lot of files, so I would suggest that you place your backups in a subdirectories.
+
+** Run your first backup
+
+{% highlight bash %}
+duplicity --encrypt-key "70DFF84F" /home/ian/myfiles scp://me@myisp.com/backup
+{% endhighlight %}
+
+Duplicity generates a lot of messages, but eventually it should complete without errors. You should now verify that duplicity backed up your data correctly:
+
+Old syntax:
+
+{% highlight bash %}
+duplicity --encrypt-key "70DFF84F" --verify scp://me@myisp.com/backup
+ /home/ian/myfiles {% endhighlight %}
+
+New syntax:
+
+{% highlight bash %}
+duplicity verify --encrypt-key "70DFF84F" scp://me@myisp.com/backup /home/ian/myfiles 
+{% endhighlight %}
+
+
+* Making Subsequent Backups.
+Provided that your first backup completed without errors, you can simply re-run the same command again. Every time you re-run the command duplicity will store the new data in the form of diffs against the first backup. If you continue to do this, eventually you will fill up your backup file system with old files, since duplicity will preserve all your data since the first time you ran it.
+
+You need to decide how long you want to preserve your data and add the --remove-older-than option to the command line. This option will remove data older than the amount of time that you specify. For example to remove data older than 7 days you would use:
+
+Old syntax:
+
+{% highlight bash %}
+duplicity --encrypt-key "70DFF84F" --remove-older-than 7D /home/ian/myfiles scp://me@myisp.com/backup
+{% endhighlight %}
+
+New syntax:
+
+{% highlight bash %}
+duplicity remove-older-than 7D --encrypt-key "70DFF84F" /home/ian/myfiles scp://me@myisp.com/backup
+{% endhighlight %}
+
+
+** Restoring Files.
+Note that duplicity will not restore data back into its original directory, you must create a new directory for your data. Apart from that restoring data is simply a matter of swapping the source and destination directories in the command line:
+
+{% highlight bash %}
+duplicity --encrypt-key "70DFF84F"  scp://me@myisp.com/backup /home/ian/restored_files
+{% endhighlight %}
+
+** Restoring a Single File.
+Often you will only want to restore a single file, rather than a whole backup set:
+
+
+{% highlight bash %}
+duplicity --encrypt-key "70DFF84F" --file-to-restore /home/ian/file.txt scp://me@myisp.com/backups /tmp/file.txt
+{% endhighlight %}
+
+If the file was deleted three days ago use the following syntax:
+
+
+{% highlight bash %}
+# See the man page for other time format examples
+duplicity --encrypt-key "70DFF84F" -t 3D --file-to-restore home/ian/file.txt scp://me@myisp.com/backups /tmp/file.txt
+{% endhighlight %}
+
+!Listing all the Files in a Backup.
+
+Old syntax:
+
+{% highlight bash %}
+duplicity --encrypt-key "" --sign-key "" --list-current-files scp://me@myisp.com/backups
+{% endhighlight %}
+
+New syntax:
+
+{% highlight bash %}
+duplicity list-current-files --encrypt-key "" --sign-key ""  scp://me@myisp.com/backups
+{% endhighlight %}
+
+
+* Using FTP or SFTP to Backup.
+If you don't have ssh access to your backup server, you can use ftp or sftp. Although ftp doesn't encrypt network traffic, this shouldn't be a problem as the files are encrypted before they leave your computer, so any "Man in the middle" attack would only get to see the encrypted files.
+
+You can place your ftp password in a bash script:
+
+
+{% highlight bash %}
+#!/bin/bash
+export FTP_PASSWORD=password
+export PASSPHRASE=gpgpassphrase
+duplicity --encrypt-key "70DFF84F" /home/ian/myfiles ftp://me@myisp.com/backup
+{% endhighlight %}
+
+* Automating Backups.
+You can run duplicity in a simple shell script. Setting the PASSPHRASE environment variable will stop duplicity prompting you for your pass phrase. Since you will be putting your pass phrase in a shell script, I would highly recommend that you use a special gpg key just for your backups.
+
+Old syntax:
+
+{% highlight bash %}
+#!/bin/bash
+export PASSPHRASE=yourpassphrase
+duplicity --encrypt-key "70DFF84F" --remove-older-than 7D /home/ian/myfiles scp://me@myisp.com/backup
+{% endhighlight %}
+
+New syntax:
+
+{% highlight bash %}
+#!/bin/bash
+export PASSPHRASE=yourpassphrase
+duplicity remove-older-than 7D --encrypt-key "70DFF84F"  /home/ian/myfiles scp://me@myisp.com/backup
+{% endhighlight %}
+
+** Backup Strategy.
+When planning your backup strategy you need to consider how long you wish to keep making incremental backups. If you have many incremental backups, you will need to restore the original, plus all the incremental backups in order to restore all your files. If you had a month's worth of daily incremental backups, this would take a very long time and possibly error prone.
+
+In order to limit the number of incremental backups, I force a full backup of my files each week. Here is an example showing the way I back up files to a usb disk. First I run --cleanup, which removes any detritus from failed backups. The --full-if-older-than 7D line does an incremental backup, but forces a full backup if there are more than 7 days of incremental backups. 
+
+The --remove-older-than now option requires a bit of explanation. It keeps the last full backup and the next chain of increments, because Duplicity is smart and doesn't delete the last chain. So you always have one full backup and the corresponding chain of increments.
+
+{% highlight bash %}
+duplicity cleanup --encrypt-key "81AEC9E9"   file:////media/usbdisk/duplicity/banter/word
+duplicity --encrypt-key "81AEC9E9" --full-if-older-than 7D  /mnt/md3/word file:////media/usbdisk/duplicity/banter/word
+duplicity remove-older-than now --encrypt-key "81AEC9E9"  file:////media/usbdisk/duplicity/banter/word
+{% endhighlight %}
+
+If you have the disk space, I recommend making your backups to something like a usb disk and then rsync the backups to your remote server. This seems to be more reliable if you are on a slow network connection and as an added bonus you have a full encrypted backup you can just pickup and carry anywhere with you.
+
+* Common Problems.
+Duplicity doesn't seem able to recover from an interrupted backup - it just starts over again. If you have a dodgy network connection this can be a problem. You might want to add the following command line option, which tells duplicity to keep trying for 30 minutes:
+
+
+{% highlight bash %}
+--scp-command 'scp -o ConnectionAttempts=1800'
+{% endhighlight %}
+
+Slow incremental backups - duplicity downloads a hash file from the server before making incremental backups. If you have a lot of small files in your backup, this file can get very big, which can considerably increase the amount of time taken to backup and restore. The solution to this is to use the archive-dir flag, which tells duplicity to use the local copy of the hash file:
+
+{% highlight bash %}
+duplicity --encrypt-key "70DFF84F" --archive-dir /home/ian/myfiles /home/ian/myfiles scp://me@myisp.com/backup
+{% endhighlight %}

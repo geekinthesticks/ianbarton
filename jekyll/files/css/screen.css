@@ -1,0 +1,162 @@
+/*
+ * Copyright 2009 Ali Polatel <alip@exherbo.org>
+ * Based in part upon:
+ *  Screen CSS for 0x90.dk
+ *  Copyright 2009 Alexander Færøy <ahf@exherbo.org>
+ *
+ */
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "georgia", serif;
+<<<<<<< HEAD:jekyll/files/css/screen.css
+  font-size: 12pt;
+=======
+  font-size: 9pt;
+>>>>>>> 519a29e7b579f62d7958898a00306137d34f7c2f:jekyll/files/css/screen.css
+  color: #333333;
+}
+
+img {
+  border: 0;
+}
+
+pre {
+  padding: 1em;
+  border: 1px dotted #0099ff;
+  background-color: #7ae4ff;
+}
+
+th { text-align:left; }
+
+tt {
+  color: blue;
+  white-space: nowrap;
+}
+
+div#header h1 {
+  height: 60px;
+  font-size: 38px;
+  color: #6699ff;
+  background-color: #33ccff;
+  border-bottom: 1px dashed blue;
+  letter-spacing: -1px;
+  margin: 0px;
+  margin-bottom: 25px;
+  padding-left: 40px;
+  padding-top: 10px;
+}
+
+div#header h1 a {
+  color: #0066ff;
+  text-decoration: none;
+}
+
+div#footer {
+  margin-top: 30px;
+  color: black;
+  text-align: center;
+  border-top: 1px dashed blue;
+  background-color: #33ccff;
+  padding-bottom: 5px;
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+div#footer a {
+  border: 0;
+}
+
+div#content {
+<<<<<<< HEAD:jekyll/files/css/screen.css
+  float: left;
+=======
+  float: right;
+>>>>>>> 519a29e7b579f62d7958898a00306137d34f7c2f:jekyll/files/css/screen.css
+  width: 65%;
+  margin: 20px;
+  padding: 5px 5px 10px 10px;
+  text-align: left;
+}
+
+div#content hr {
+  border: 0;
+  background-color: #33ccff;
+}
+
+div#content a,
+div#content a:visited,
+div#content a:link,
+div#content a:active {
+  color: #336699;
+  text-decoration: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px dotted #0033ff;
+}
+
+div#content a:hover {
+  color: blue;
+  text-decoration: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px dotted #0033ff;
+  background-color: #00ffff;
+}
+
+div#menu {
+  margin: 20px;
+  padding: 0 10px 10px 0;
+  float: left;
+  width: 200px;
+  text-align: left;
+}
+
+div#menu ul {
+  margin-left: 0px;
+  padding-left: 25px;
+}
+
+div#menu h3 {
+  font-variant: small-caps;
+  margin: 0;
+}
+
+div#menu p {
+  padding: 0 0 8px 8px;
+  line-height: 1.5;
+  text-align: justify;
+}
+
+div#picture {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+div#picture img {
+  border: 1px dashed;
+  border-color: blue;
+  padding: 2px;
+}
+
+div#post {
+  padding-right: 50px;
+  padding-left: 10px;
+}
+
+div#post_info p {
+  font-family: verdana, sans-serif;
+  font-size: 8pt;
+  line-height: 1.0;
+  padding-right: 50px;
+  padding-left: 10px;
+}
+
+/* vim: set et ts=2 sts=2 sw=2 : */

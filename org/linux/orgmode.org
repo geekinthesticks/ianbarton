@@ -1,0 +1,14 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: org-mode.
+#+BEGIN_HTML
+--- 
+layout: linux 
+title: Emacs org-mode
+--- 
+#+END_HTML
+
+The content of this site is created using Emacs [[http://orgmode.org][org-mode]], created by
+Carsten Dominik. The org files are exported to html using org and then
+processed by Jekyll to produce the final site.

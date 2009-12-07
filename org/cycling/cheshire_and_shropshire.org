@@ -1,0 +1,14 @@
+#+SETUPFILE: ~/.emacs-lisp/org-templates/level-1.org
+#+TITLE: Index for Cycling Pages.
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+INFOJS_OPT: view:overview ltoc:nil toc:t
+#+OPTIONS: H:2 num:nil tags:nil toc:1 timestamps:t
+#+LINK_UP: index.html
+#+LINK_HOME: ../index.html
+#+BEGIN_HTML
+---
+layout: cycling
+title: Cycling.
+---
+#+END_HTML

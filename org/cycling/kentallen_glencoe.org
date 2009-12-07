@@ -1,0 +1,52 @@
+#+TITLE: Cycling Around Lake Vyrnwy.
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:1 timestamps:t
+#+BEGIN_HTML
+---
+layout: cycling
+title: Kentallen to Glencoe.
+---
+#+END_HTML
+
+#+BEGIN_HTML
+<div class="photofloatr">
+  <p><img src="/images/DSCF0972.JPG" width="300"
+     alt="View form the forestry track"></p>
+  <p>Top of the forestry track</p>
+</div>
+#+END_HTML
+
+The Oban to Fort William Cycle trail seems to be one of the best kept
+secrets in Scotland. I only found out about it because we were staying
+at Kentallen right next to it. It is supposed to be a flagship trail,
+but there was almost no information available locally, or on the
+web. The trail isn't complete, but the section between Kentallen and
+Ballachulish is finished.
+
+We started our ride next to the
+[[http://www.hollytreehotel.co.uk/][Holly Tree Hotel]] in
+Kentallen. The trail winds its way along the shores of Loch Linnhe. It
+emerges next to Ballachulish bridge, where you can cross over to
+Glenachulish. There are great view over the lake to Ardgour and
+Glencoe. From the end of the track it's possible to follow a forestry
+track from the car park in Glenachulish towards Ballachulish. The
+track climbs up into the glen. There are two alternatives, depending
+on how far up the glen you want to cycle. The track is stony in
+places, but quite navigable on ordinary road bikes. Be warned that the
+"easy" variation involves some 400ft of climbing. However, the views
+more than compensate for the climb!
+
+#+BEGIN_HTML
+<div class="photofloatl">
+  <p><img src="/images/DSCF0978.JPG" width="300"
+     alt="Pap of Glencoe"></p>
+  <p>Pap of Glencoe from the forestry track</p>
+</div>
+#+END_HTML
+
+We had to cycle back to Kentallen and I was a bit concerned that the
+children wouldn't want to go back up the forestry track. However, they
+had enjoyed the descent so much, they were happy to climb back up the
+track again.
+

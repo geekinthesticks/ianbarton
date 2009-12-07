@@ -1,0 +1,55 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:1 timestamps:t
+#+BEGIN_HTML
+---
+---
+layout: post
+title: Proporta Gadget Bag.
+tags: [gadgets, linux, test]
+excerpt: A review of the Proporta Gadget Bag.
+---
+#+END_HTML
+
+
+* Proporta Gadget Bag.
+The bag that comes with the Asus eee is fine for carrying the
+computer, but doesn't have any space for the charger or other bits and
+pieces that you might want to carry about.
+
+I already have a TechAir rucksack that will hold my notebook and has
+several extra compartments for accessories. However, it's really too
+large if I just wanted to carry the Asus eee and a few other bits and
+pieces. What I was looking for was a bag that would fit the following
+criteria:
+
+- Hold my Asus eee.
+- Padded to help prevent accidental damage.
+- Had space for an iPod, usb memory stick and things like notebook and pens.
+- Hard wearing.
+- Mustn't be too big, or too expensive!
+
+Eventually I found the [[http://www.proporta.com/F02/PPF02P05.php%3Ft_id%3D2505&t_mode%3Ddes%5D%5D][Proporta Gadget Bag]]
+ which seemed to fit my requirements exactly. The case is
+made out of some sort of ballistic nylon material and has three
+compartments. The main compartment is just the right size for the Asus
+eee and has a separate removable pocket which will hold extras like memory
+cards. Just above the pocket is an elastic strap, which could hold
+something like a portable battery charger.
+
+There are two pockets on the front of the case, which will hold my
+iPod, the charger for the Asus eee paper notebook and usb memory
+stick. There is an aperture which allows you to feed headphones and
+charging cables through each section. A nice additional feature is the
+ability to unzip the two front pockets from the main compartment and
+use them separately.
+
+My bag came with two clip on shoulder straps. After a bit of chopping
+and sewing I managed to convert one of these into a carrying handle,
+thus covering all carrying options.
+
+Nothing is perfect. It would be nice to have some more small internal
+compartments inside the front pockets and a pen holder. However,
+overall I am very satisfied with the gadget bag. In fact I like it so
+much I am going to buy another one to hold all the children's gadgets
+for traveling in the car.

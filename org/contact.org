@@ -1,0 +1,18 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+INFOJS_OPT: view:info toc:t ltoc:nil
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: Contact.
+#+BEGIN_HTML
+---
+layout: default
+title: Contact.
+---
+#+END_HTML
+You can contact me via several methods:
+
+- Email: ian at manor-farm dot org
+
+- IM: geekinthesticks@gmail.com
+
+- Skype: igbarton

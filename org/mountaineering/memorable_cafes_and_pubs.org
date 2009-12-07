@@ -1,0 +1,77 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: Memorable Cafes and Pubs.
+#+BEGIN_HTML
+--- 
+layout: mountaineering
+title: Memorable Cafes and Pubs.
+--- 
+#+END_HTML
+
+
+This page isn't specifically about mountaineering, but since cafes and
+pubs are important to my enjoyment of climbing I thought I would add a
+few short reviews here. Note that not all the cafes and pubs reviewed
+are anywhere near to a mountain or rock face. However, it's useful to
+know where there is a decent establishment whatever part of the
+country you are in. The information provided is purely my own personal
+opinion and since places change over the years, your experiences might
+be different to mine!
+
+* North Wales.
+** Llanberis.
+Many years ago (1970's) there was Wendy's, which was owned by two
+climbers. Wendy's deserved the full three Skull and Crossbones award
+in the Greasy Spoon Cafe Awards. In 1978, after Wendy's had closed,
+Pete and Vicky Norton opened [[http://www.petes-eats.co.uk/][Pete's Eats]] . The cafe is still in the
+same place and still run by Pete and Vicky, though they take a more
+back seat role these days. It has now expanded both into the house
+next door and into a restaurant on the opposite side of the road. The
+food is good with a varied menu. You can while away wet days drinking
+mugs of tea looking at the digital slide-show and reading the
+newspapers and magazines. There is the legendary "Big Jim". If you can
+finish one of these without your arteries getting completely clogged,
+you get another one free!  Accomodation and Internet access is also
+available.
+
+** Nant-Peris
+The [[%5B%5Bhttp://www.vaynolarms.co.uk][Vaynol Arms]]. Decent beer and good food. In the old days you needed
+to be careful not to upset Don Whillans, who was frequently propping
+up the bar.
+
+** Tremadoc.
+[[http://www.ericjones-tremadog.co.uk/][Eric Jones cafe]] is conveniently situated right under the crag. You can
+gaze at pictures of Eric's exploits while eating your food. There is
+also a campsite and a bunk house. At one time Eric used to wake
+campers with a fresh mug of tea, although I suspect that this was a
+ploy to stop people getting away without paying.
+
+* Peak District.
+** Outside 
+Hathersage and Calver Crossroads.
+
+** Stoney Cafe.
+In the 70's and 80's this was a very popular meeting place for climbers. It was closed for a while, but has now re-invented itself as a Cafe/Bistro.
+
+** The Chequers Frogatt.
+Traditional pub below the Edge.
+
+* The Alps.
+** Chamonix.
+At one time the Bar Nationale was a mecca for British
+alpinists. Slightly less expensive than other bars, it had a slightly
+run down ambiance. Maurice, the proprietor, would peer at you with an
+amazing cross eyed expression. Despite having no interest in climbing
+Maurice was synpathetic to the unruly Brits who spent all day in has
+bar drinking a single beer. Sadly he died a couple of years ago having
+spent the latter part of is life confined upstairs in the Bar.
+
+* Shropshire
+** Ludlow.
+[[http://www.degreys.co.uk/tea-rooms.htm][De Grey's]] tea rooms. Step into your Tardis and go back to the golden
+age of English tea room. Tea is brought to your table by one of the
+many waitresses, smartly dressed in starched white aprons. Cakes and
+pastries are baked in their own bakery and a selection is placed on
+your table on one of those three tier contraptions you see in old
+films.

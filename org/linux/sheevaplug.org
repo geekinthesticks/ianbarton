@@ -1,0 +1,10 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: Sheevaplug.
+#+BEGIN_HTML
+--- 
+layout: default 
+title: Sheevaplug.
+--- 
+#+END_HTML

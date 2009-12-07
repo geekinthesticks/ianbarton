@@ -1,0 +1,52 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+INFOJS_OPT: view:info toc:t ltoc:nil
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: Various Mountaineering Scribblings.
+#+BEGIN_HTML
+---
+layout: default
+title: Welcome to Ian Barton's Website.
+---
+#+END_HTML
+
+Welcome to Ian Barton's web site. You will find a collection of
+ramblings about mountaineering, Linux and free software, farming and
+the English country side, plus a few other bits and bobs.
+
+After several years using the excellent
+[[http://www.pmwiki.org][PmWiki]] wiki based system, I have moved to
+using a static site generated with [[http://github.com/mreid/jekyll/][Jekyll]]. Since the site is
+maintained just by myself, I didn't really need the collaborative
+features of a wiki. Also Jekyll makes it easy for me to write using
+Emacs while maintaining my site under version control using Git. I was
+also fed up of my web logs filling up wit bots trying to post stuff to
+my wiki, even though all edits required authorization. In fact the
+bots were using up almost all the RAM on my Xen virtual web server and
+I got tired of adding the bot ip addresses to my hosts.deny.
+
+It's going to take a while to get this site working properly. If you
+find any broken links, or missing pages, please let me know.
+
+#+BEGIN_HTML
+<ul class="posts">
+{% for post in site.posts limit: 5 %}
+  <div class="post_info">
+    <li><a href="{{ post.url }}">{{ post.title }}</a> <span>({{ post.date | date:"%Y-%m-%d" }})</span></li>
+    </br> <em>{{ post.excerpt }} </em>
+    </div>
+  {% endfor %}
+</ul>
+
+
+
+{% if site.posts.size > 5 %}
+  <h4>Older Posts</h4>
+  <ul>
+  {% for post in site.posts offset: 5 %}
+    <li><a href="{{ post.url }}">{{ post.title }}</a> ({{ post.date | date:"%Y-%m-%d" }})</li>
+  {% endfor %}
+  </ul>
+{% endif %}
+
+#+END_HTML

@@ -1,0 +1,31 @@
+#+TITLE: Cycling Around Lake Vyrnwy.
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:1 timestamps:t
+#+BEGIN_HTML
+---
+layout: cycling
+title: Cycling Round Lake Vyrnwy.
+---
+#+END_HTML
+* Lake Vyrnwy.
+Lake Vyrnwy is an ideal route for children. Although the road around
+the lake is open to traffic, its winding nature and the presence of
+many other cyclists keeps motorists speeds down. The total distance
+around the lake is around 12 miles and the road is almost completely
+flat.
+
+There are several parking places around the lake, and a cafe near the
+dam. 
+
+** A More Challenging Ride.
+For those wanting a harder ride there is an absolutely fantastic ride
+to Bala. It's usual to start the ride from Bala. There is around 600m
+of ascent and the total length of the ride is about 35 miles. From
+Bala the ride gains the col at Bwlch-y-Groes, which has fine views
+over the Arans. At 1800ft this is the highest pass in Wales. You can
+let your legs recover on the descent to the lake and have a well
+earned piece of cake in the cafe near the dam. The way back to Bala
+takes the other road from the end of the lake up through Cwm Hirnant
+before descending back to Bala.
+

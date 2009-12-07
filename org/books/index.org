@@ -1,0 +1,48 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+INFOJS_OPT: view:info toc:t ltoc:nil
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+#+TITLE: Various Mountaineering Scribblings.
+#+BEGIN_HTML
+---
+layout: books
+title: Books.
+---
+#+END_HTML
+
+
+This page is a mish mash of short reviews and a list of things I would
+like to read. Note I interpret the term "book" very loosely, I include
+eBooks and audio books in my definition. In recent years I have taken
+to reading a lot of eBooks. I almost always have my phone with me and
+I can potentially fit hundreds of books on my SD card. If I have a
+couple of minutes to spare I can just whip out the phone and read a
+book.
+
+I buy most of my eBooks from [[%5B%5Bhttp://www.fictionwise.com][Fictionwise]]. At one time I bought books
+from [[http://www.ereader.com][eReader]], as they often had titles not available at
+Fictionwise. Unfortunately, eReader don't look as they are ever going
+to get around to releasing a reader for the S60 series 3
+phone. Nowadays if I have to buy and encrypted book, I get it in
+[[http://www.mobipocket.com][Mobipocket]] format, since their reader is available for most platforms
+and seems to be in active development. I also have [[http://www.isilo.com][iSilo]] on my phone
+now that they have finally released a version for my phone. Not only
+is it a very good reader, but there is a free cross platform
+convertor. Amongst other things this does a very good job of
+converting web pages into eBook format.
+
+I have a large stack of audio books that I listen to on my Archos
+player. I have experimented with a couple of download sites like
+[[http://www.spokennetwork.co.uk][Spoken Network]] . However, almost all
+of their content is DRM'ed. The additional hassle of removing the DRM,
+so I can listen to my purchase in a way that I choose is greater than
+the small additional cost of buying the title on CD and then ripping
+it into mp3 format.
+
+Quite a lot of the stuff on my Archos originates from Radio 4 or
+BBC7. The Beeb are to be applauded for making most of their content
+available for listening for seven days after broadcast. For various
+copyright reasons they make it difficult for you to record things from
+their Listen Again site. If you want to know how I record things to
+listen to on my Archos, click [[Linux/HomePage#listenagain | here]] .
+

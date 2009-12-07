@@ -1,0 +1,208 @@
+body,
+html {
+  font-family: Georgia, serif;
+  margin:0;
+  padding:0;
+  color:#000;
+  background:#a7a09a;
+}
+
+
+#wrap {
+  width:750px;
+  margin:0 auto;
+  background:#FFFFFF;
+}
+
+
+#nav {
+  padding:5px 10px;
+  background:#000000;
+
+}
+
+#footer {
+  clear:both;
+  padding:5px 10px;
+  background: #000000;
+}
+
+#footer p {
+  color: #FFFFFF;
+}
+
+#main {
+   float:left;
+   width:500px;
+   background:#FFFFFF;
+   width:480px;
+   padding:10px;
+
+}
+
+
+#sidebar {
+   float:right;
+   width:230px;
+   padding:10px;
+   background:#FFFFFF;
+
+}
+
+#nav ul {
+   margin:0;
+   padding:0;
+   list-style:none;
+}
+
+
+#nav li {
+   display:inline;
+   margin:0;
+   padding:0;
+}
+
+#nav a:link { 
+	color: #FFFFFF;
+}
+
+#nav a:visited { 
+	color: #FFFFFF;
+}
+
+#nav a:hover { 
+	color: #CCCCCC;
+	background-color: #333333;
+	text-decoration: none;
+}
+
+#nav a:active { 
+	color: #333333;
+}
+
+#header {
+   padding:5px 10px;
+   background:#000000;
+}
+
+#header h1 {
+    color: #FFFFFF
+}
+
+h1 {
+   margin:0;
+}
+
+
+
+h2 {
+  margin:0 0 1em;
+}
+
+
+#footer p {
+  margin:0;
+}
+
+.copyright {
+  color: #FFFFFF;
+}
+
+.engine {
+  color: #FFFFFF;
+}
+
+
+* html #footer {
+   height:1px;
+   
+}
+
+.boxbody p {font-size:76%}
+.boxbody a {color:gray}
+.boxbody a:hover {color:blue}		
+/* Show only to IE PC \*/
+* html .boxhead h2 {height: 1%;} /* For IE 5 PC */
+
+.sidebox {
+    margin: 0 auto; /* center for now */
+    width: 15em; /* ems so it will grow */
+    background: url(sbbody-r.gif) no-repeat bottom right;
+    font-size: 100%;
+}
+
+.boxhead {
+    background: url(sbhead-r.gif) no-repeat top right;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.boxhead h2 {
+    background: url(sbhead-l.gif) no-repeat top left;
+    margin: 0;
+    padding: 20px 30px 5px;
+    color: white; 
+    font-weight: bold; 
+    font-size: 1.2em; 
+    line-height: 1em;
+    text-shadow: rgba(0,0,0,.4) 0px 2px 5px; /* Safari-only, but cool */
+}
+
+.boxbody {
+    background: url(sbbody-l.gif) no-repeat bottom left;
+    margin: 0;
+    padding: 5px 30px 31px;
+}
+
+.widthlessbox {
+    margin: 0 25%; /* NO WIDTH! Opens up a world of possibilities! */
+    background: url(sbbody-r.gif) no-repeat bottom right;
+    font-size: 100%;
+}
+
+
+div.photofloatr {
+    float: right;
+    border: thin silver solid;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+div.photofloatr p {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+}
+
+div.photofloatl {
+    float: left;
+    border: thin silver solid;
+    margin: 0.5em;
+    padding: 0.5em;
+}
+
+div.photofloatl p {
+  text-align: center;
+  font-style: italic;
+  font-size: smaller;
+  text-indent: 0;
+}
+
+
+ul.posts {
+  list-style-type: none;
+  margin-bottom: 1.5em;
+}
+ 
+  ul.posts li {
+    line-height: 1.75em;
+    margin-top: 0.5em;
+  }
+ 
+  ul.posts span {
+    color: #aaa;
+    font-family: Monaco, "Courier New", monospace;
+    font-size: 80%;
+  }
