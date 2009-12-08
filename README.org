@@ -1,0 +1,16 @@
+#+STARTUP: showall indent
+#+STARTUP: hidestars
+#+OPTIONS: H:2 num:nil tags:nil toc:nil timestamps:nil
+
+* Abstract.
+Write your blog posts using Emacs org-mode and publish them with
+Jekyll.
+* Requirements.
+- Emacs plus org-mode (a recent version).
+- Jekyll.
+* Notes.
+This is a snapshot of my site, created using org-mode and Jekyll. Its
+purpose is to give you some examples of how you can use Jekyll with
+org-mode.
+* Comments and Feedback.
+You can send your feedback to ian at manor-farm dot org.
