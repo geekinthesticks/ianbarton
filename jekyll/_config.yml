@@ -1,5 +1,5 @@
 auto:        false
-destination: /var/www
+destination: _site
 permalink:   pretty
 pygments:    true
 markdown:    maruku
